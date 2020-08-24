@@ -1,26 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import axios from 'axios'
 
-function App() {
+import User from './components/User/User'
+import './App.css'
+
+const App = () => {
+  const [users, setUsers] = useState([])
+  const [input, setInput] = useState('')
+
+  const getUser = () => {
+    axios.get(`https://api.github.com/users/${input}`).then(({ data }) => {
+      setUsers([ ...users, data ])
+    })
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="search">
+        <input
+          className="input"
+          type="text"
+          placeholder="Insira o username" 
+          onChange={(event) => setInput(event.target.value)}
+        />
+        <button className="button" onClick={getUser}>Encontrar Usuário</button>
+      </div>
+
+      {users && users.map((user, index) => (
+        <User key={index} {...user} />
+      ))}
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

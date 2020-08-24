@@ -1,38 +1,66 @@
+* {
+  font-family: 'Roboto Mono', monospace;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#root {
+  width: 100%;
+}
+
+.background {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to right, rgb(67, 198, 172), rgb(25, 22, 84));
+  max-width: 590px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.input {
+  padding: 10px;
+  border: 0;
+  outline: none;
+  flex: 1;
+  background-color: transparent;
+  border-bottom: 1px solid #CCC;
+  color: #EBEBEB;
+}
+
+.input::placeholder {
+  color: #EBEBEB;
+}
+
+.button {
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 5px;
+  margin-left: 10px;
+  outline: none;
+  border: 0;
+  background-color: #527492;
+  color: #EBEBEB;
+}
+
+.button:hover {
+  background-color: #374e62;
+  cursor: pointer;
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.search {
+  display: flex;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+@media(min-width: 720px) {
+  .background {
+    padding: 0 16px;
   }
 }
