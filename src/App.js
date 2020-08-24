@@ -9,6 +9,9 @@ const App = () => {
   const [input, setInput] = useState('')
 
   const getUser = () => {
+    if(!input) {
+      return
+    }
     axios.get(`https://api.github.com/users/${input}`).then(({ data }) => {
       setUsers([ ...users, data ])
     })
