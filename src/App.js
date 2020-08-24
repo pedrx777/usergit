@@ -12,9 +12,11 @@ const App = () => {
     if(!input) {
       return
     }
-    axios.get(`https://api.github.com/users/${input}`).then(({ data }) => {
-      setUsers([ ...users, data ])
-    })
+
+    axios.get(`https://api.github.com/users/${input}`)
+      .then(({ data }) => {
+        setUsers([ ...users, data ])
+      })
   }
 
   return (

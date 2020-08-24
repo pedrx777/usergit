@@ -12,6 +12,7 @@
   background-color: rgba(0, 0, 0, 0.5);
   padding: 15px;
   border-radius: 10px;
+  width: 100%;
 }
 
 .text {
@@ -25,8 +26,5 @@
 @media(min-width: 720px) {
   .title {
     font-size: 26px;
-  }
-  .user {
-    width: 100px;
   }
 }
